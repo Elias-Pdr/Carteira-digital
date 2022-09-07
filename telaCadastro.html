@@ -16,12 +16,155 @@
             <img src="img/img-segunda-tela.png" alt="">
         </div>
         <div class="containerInput">
-            <input type="text" name="" id="" placeholder="Digite uma senha">
-            <input type="text" name="" id="" placeholder="Confirme a senha">
+            <input oninput="inputNome()" type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
+            <input oninput="inputEmail()" type="email" name="email" id="email" placeholder="Digite seu email">
+            <input oninput="inputTel()" type="tel" name="tel" id="tel" placeholder="Digite seu celular">
+            <input oninput="inputCpf()" type="number" name="cpf" id="cpf" placeholder="Digite seu cpf">
+            <input oninput="inputSenha()" type="number" name="senha" id="senha" placeholder="Digite uma senha">
+            <input oninput="inputConfirmation()" type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
+            <label id="avisoText" for="confirmeSenha"></label>
         </div>
         <div class="containerButton">
-            <button onclick="window.location.href = 'telaDone.html'">Continuar</button>
+            <button id="btn-continuar" onclick="continuar()">Continuar</button>
         </div>
     </main>
+
+    <script>
+        let bntContinuar = document.getElementById('btn-continuar')
+
+        let nome = document.getElementById('nome')
+        let email = document.getElementById('email')
+        let tel = document.getElementById('tel')
+        let cpf = document.getElementById('cpf')
+        let senha = document.getElementById('senha')
+        let confirmeSenhar = document.getElementById('confirmeSenhar')
+        let avisoText = document.getElementById('avisoText')
+        let contador = 0, contador2 = 0, contador3 = 0, contador4 = 0
+
+        bntContinuar.disabled = true
+
+        email.style.display = 'none'
+        tel.style.display = 'none'
+        cpf.style.display = 'none'
+        senha.style.display = 'none'
+        confirmeSenhar.style.display = 'none'
+
+
+
+        function inputNome(){
+            contador++
+            if (contador >= 5) {
+                disabledFalse()
+            }else{
+                disabledTrue()
+            }
+        }
+
+        function inputTel(){
+            contador2 += 1
+            if (contador2 == 2) {
+                tel.value = '('+ tel.value + ') '
+            }
+            else if (contador2 == 7) {
+                tel.value = tel.value + '-'
+            }
+            else if (contador2 >= 11 & email.value.indexOf('@') != -1 & email.value.indexOf('.com') != -1) {
+                disabledFalse()
+            }else{
+                disabledTrue()
+            }
+            
+        }
+        function inputCpf(){
+            contador3 += 1
+            if (contador3 == 10 ) {
+                disabledFalse()
+            }else{
+                disabledTrue()
+            }
+            
+        }
+        function inputSenha(){
+            contador4 += 1
+            if (contador4 < 6) {
+                avisoText.innerHTML = '* A senha deve ter 6 ou mais números'
+            }else{
+                avisoText.innerHTML = ''
+            }
+            
+        }
+        function inputConfirmation() {
+            if(senha.value == confirmeSenhar.value){
+                if (contador4 < 6) {
+                    avisoText.innerHTML = '* A senha deve ter 6 ou mais números'
+                }else{
+                    disabledFalse()
+                }
+            }else{
+                avisoText.innerHTML = '* As senhas são diferentes'
+                disabledTrue()
+            }
+        }
+
+
+        function disabledTrue() {
+            bntContinuar.style.background ='rgba(128, 128, 128, 0.151)'
+            bntContinuar.style.boxShadow = 'none'
+            bntContinuar.style.color = 'rgba(128, 128, 128, 0.699)'
+            bntContinuar.disabled = true
+            avisoText.innerHTML = ''
+
+        }
+        function disabledFalse() {
+            bntContinuar.style.backgroundColor ='var(---corMain)'
+            bntContinuar.style.boxShadow = '0px 2px 10px 0px #00000011'
+            bntContinuar.style.color = 'white'
+            bntContinuar.disabled = false
+            avisoText.innerHTML = ''
+        }
+
+        function continuar(){
+            if (nome.style.display != 'none') {
+
+                nome.style.display = 'none'
+                email.style.display = 'block'
+                tel.style.display = 'block'
+                cpf.style.display = 'none'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
+
+                disabledTrue()
+            }
+            else if (email.style.display != 'none' & tel.style.display != 'none') {
+                
+                nome.style.display = 'none'
+                email.style.display = 'none'
+                tel.style.display = 'none'
+                cpf.style.display = 'block'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
+
+
+
+                disabledTrue()
+            }
+            else if (cpf.style.display != 'none') {
+                
+                nome.style.display = 'none'
+                email.style.display = 'none'
+                tel.style.display = 'none'
+                cpf.style.display = 'none'
+                senha.style.display = 'block'
+                confirmeSenhar.style.display = 'block'
+
+
+
+                disabledTrue()
+            }
+            else if (senha.style.display == 'block') {
+                window.location.href = 'telaDone.html'
+            }
+        }
+    </script>
 </body>
 </html>

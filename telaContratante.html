@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitz freelancer</title>
+    <link rel="stylesheet" href="telaCadastro.css">
+</head>
+<body>
+    <header>
+        <img src="img/img-back.png" alt="" onclick="window.location.href = 'index.html'">
+    </header>
+    <main>
+        <div class="containerIcon">
+            <img src="img/img-segunda-tela.png" alt="">
+        </div>
+        <div class="containerInput">
+            <input oninput="inputNome()" type="text" name="nome" id="nome" placeholder="Digite seu nome de usuário">
+            <input oninput="inputSenha()" type="number" name="senha" id="senha" placeholder="Digite sua senha">
+            <label id="avisoText" for="confirmeSenha"></label>
+        </div>
+        <div class="containerButton">
+            <button id="btn-continuar" onclick="continuar()">Continuar</button>
+        </div>
+    </main>
+
+    <script>
+        let bntContinuar = document.getElementById('btn-continuar')
+        let avisoText = document.getElementById('avisoText')
+
+        function inputNome(){
+            avisoText.innerHTML = ''
+        }
+        function inputSenha() {
+            bntContinuar.style.backgroundColor ='var(---corMain)'
+            bntContinuar.style.boxShadow = '0px 2px 10px 0px #00000011'
+            bntContinuar.style.color = 'white'
+            bntContinuar.disabled = false
+            avisoText.innerHTML = ''
+
+        }
+        function continuar(){
+            avisoText.innerHTML = '* Usuário e senha inválidos'
+        }
+    </script>
+
+</body>
+</html>
