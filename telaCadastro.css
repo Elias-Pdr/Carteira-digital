@@ -18,13 +18,13 @@ header {
     padding: 20px;
 }
 header > img{
-    width: 20px;
+    width: 14px;
 }
 .containerIcon {
     text-align: center;
 }
 .containerIcon > img{
-    width: 70%;
+    width: 60%;
     margin: 20px auto;
 }
 
@@ -34,11 +34,10 @@ header > img{
     flex-direction: column;
 }
 .containerInput > input{
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 20px;
     border: none;
     border-bottom: 1px solid var(---corMain);
-    line-height: 40px;
     outline: none;
 }
 
