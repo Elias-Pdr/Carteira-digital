@@ -18,15 +18,15 @@
         <form class="containerInput" action="https://api.staticforms.xyz/submit" method="post">
             <input type="hidden" name="accessKey" value="cf0f6c67-5eeb-467d-82ab-17de4b5ed579">
 
-            <input name="name" oninput="inputNome()" type="text" id="nome" placeholder="Digite seu nome completo">
-            <input name="email" oninput="inputEmail()" type="email" id="email" placeholder="Digite seu email">
-            <input name="phone" oninput="inputTel()" type="tel" id="tel" placeholder="Digite seu celular">
-            <input name="message" oninput="inputCpf()" type="text" id="cpf" placeholder="Digite seu CPF">
+            <input name="name" type="text" id="nome" placeholder="Digite seu nome completo">
+            <input name="email" type="email" id="email" placeholder="Digite seu email">
+            <input name="phone" type="tel" id="tel" placeholder="Digite seu celular">
+            <input name="message" type="text" id="cpf" placeholder="Digite seu CPF">
             
-            <input oninput="inputSenha()" type="number" name="senha" id="senha" placeholder="Digite uma senha">
-            <input oninput="inputConfirmation()" type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
+            <input type="number" name="senha" id="senha" placeholder="Digite uma senha">
+            <input type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
             <label id="avisoText" for="confirmeSenha"></label>
-            <input type="hidden" name="redirectTo" value="">
+            <input type="hidden" name="redirectTo" value="telaCadastro.html">
 
         </div>
         <div class="containerButton">
@@ -55,73 +55,76 @@
         confirmeSenhar.style.display = 'none'
 
 
-
-        function inputNome(){
-            contador++
-            if (contador >= 5) {
+        nome.addEventListener("input", function(e){
+            var inputLength_nome = nome.value.length
+            if(inputLength_nome >= 4){
                 disabledFalse()
             }else{
                 disabledTrue()
             }
-        }
+        })
 
-        function inputTel(){
-            contador2 += 1
-            if (contador2 == 2) {
+        tel.addEventListener("input", function(e){
+            var inputLength_tel = tel.value.length
+
+            if (inputLength_tel == 2) {
                 tel.value = '('+ tel.value + ') '
             }
-            else if (contador2 == 7) {
+            if (inputLength_tel == 7) {
                 tel.value = tel.value + '-'
             }
-            else if (contador2 >= 11 & email.value.indexOf('@') != -1 & email.value.indexOf('.com') != -1) {
+            if (inputLength_tel >= 11 & email.value.indexOf('@') != -1 & email.value.indexOf('.com') != -1) {
                 disabledFalse()
             }else{
                 disabledTrue()
-            }
-            
-        }
-        function inputCpf(){
-            contador3 += 1
-            console.log(contador3);
+            }      
+        })
 
-            if (contador3 == 3 || contador3 == 6) {
-                console.log(cpf.value);
+        cpf.addEventListener("input", function(e){
+            var inputLength_cpf = cpf.value.length
+
+            if (inputLength_cpf == 3 || inputLength_cpf == 6) {
                 cpf.value = cpf.value + "."
             }
-            if (contador3 == 9) {
+            if (inputLength_cpf == 9) {
                 cpf.value = cpf.value + '-'
             }
 
 
-            if (contador3 == 11 ) {
+            if (inputLength_cpf >= 11 ) {
                 disabledFalse()
             }else{
                 disabledTrue()
             }
-            
-        }
-        
-        function inputSenha(){
-            contador4 += 1
-            if (contador4 < 6) {
+
+        })
+
+        senha.addEventListener("input", function(e){
+            let inputLength_senha = senha.value.length
+            if (inputLength_senha < 6) {
                 avisoText.innerHTML = '* A senha deve ter 6 ou mais números'
-            }else{
+            }else if(inputLength_senha >= 6){
                 avisoText.innerHTML = ''
             }
-            
-        }
-        function inputConfirmation() {
-            if(senha.value == confirmeSenhar.value){
-                if (contador4 < 6) {
-                    avisoText.innerHTML = '* A senha deve ter 6 ou mais números'
-                }else{
-                    disabledFalse()
-                }
+
+        })
+        
+        confirmeSenhar.addEventListener("input", function(e){
+            var inputLength_confirmeSenhar = confirmeSenhar.value.length
+            console.log(senha.value);
+            console.log(confirmeSenhar.value);
+
+            if(confirmeSenhar.value == senha.value){
+                disabledFalse()
+                console.log('igual');
             }else{
                 avisoText.innerHTML = '* As senhas são diferentes'
                 disabledTrue()
+                console.log('diferente');
+
             }
-        }
+        })
+
 
 
         function disabledTrue() {
@@ -129,7 +132,6 @@
             bntContinuar.style.boxShadow = 'none'
             bntContinuar.style.color = 'rgba(128, 128, 128, 0.699)'
             bntContinuar.disabled = true
-            avisoText.innerHTML = ''
 
         }
         function disabledFalse() {

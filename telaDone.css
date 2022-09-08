@@ -9,11 +9,14 @@
 }
 body, html{
     width: 100%;
+    background-color: rgb(255, 255, 255);
+
 }
 
 
 .containerText{
-    margin: 50px 10px 26px 10px;
+    margin: 50px auto 26px auto;
+    width: 90%;
 }
 .containerText > h1{
     text-align: center;
@@ -22,9 +25,8 @@ body, html{
     color: var(---corMain);
 }
 .containerText > h2{
-    margin: 26px 0px;
+    margin: 40px 0px;
     font-size: 1em;
-
 }
 .containerText > p{
     font-size: 1em;
