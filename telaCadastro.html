@@ -15,14 +15,19 @@
         <div class="containerIcon">
             <img src="img/img-segunda-tela.png" alt="">
         </div>
-        <div class="containerInput">
-            <input oninput="inputNome()" type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
-            <input oninput="inputEmail()" type="email" name="email" id="email" placeholder="Digite seu email">
-            <input oninput="inputTel()" type="tel" name="tel" id="tel" placeholder="Digite seu celular">
-            <input oninput="inputCpf()" type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
+        <form class="containerInput" action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="cf0f6c67-5eeb-467d-82ab-17de4b5ed579">
+
+            <input name="name" oninput="inputNome()" type="text" id="nome" placeholder="Digite seu nome completo">
+            <input name="email" oninput="inputEmail()" type="email" id="email" placeholder="Digite seu email">
+            <input name="phone" oninput="inputTel()" type="tel" id="tel" placeholder="Digite seu celular">
+            <input name="message" oninput="inputCpf()" type="text" id="cpf" placeholder="Digite seu CPF">
+            
             <input oninput="inputSenha()" type="number" name="senha" id="senha" placeholder="Digite uma senha">
             <input oninput="inputConfirmation()" type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
             <label id="avisoText" for="confirmeSenha"></label>
+            <input type="hidden" name="redirectTo" value="telaDone.html">
+
         </div>
         <div class="containerButton">
             <button id="btn-continuar" onclick="continuar()">Continuar</button>
