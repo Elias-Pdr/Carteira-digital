@@ -33,7 +33,7 @@ header > img{
     display: flex;
     flex-direction: column;
     margin: 20px;
-
+    padding-bottom: 100px;
 }
 .containerInput > input{
     font-size: 1em;
