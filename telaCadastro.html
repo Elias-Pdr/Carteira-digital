@@ -19,7 +19,7 @@
             <input oninput="inputNome()" type="text" name="nome" id="nome" placeholder="Digite seu nome completo">
             <input oninput="inputEmail()" type="email" name="email" id="email" placeholder="Digite seu email">
             <input oninput="inputTel()" type="tel" name="tel" id="tel" placeholder="Digite seu celular">
-            <input oninput="inputCpf()" type="number" name="cpf" id="cpf" placeholder="Digite seu cpf">
+            <input oninput="inputCpf()" type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
             <input oninput="inputSenha()" type="number" name="senha" id="senha" placeholder="Digite uma senha">
             <input oninput="inputConfirmation()" type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
             <label id="avisoText" for="confirmeSenha"></label>
@@ -77,13 +77,25 @@
         }
         function inputCpf(){
             contador3 += 1
-            if (contador3 == 10 ) {
+            console.log(contador3);
+
+            if (contador3 == 3 || contador3 == 6) {
+                console.log(cpf.value);
+                cpf.value = cpf.value + "."
+            }
+            if (contador3 == 9) {
+                cpf.value = cpf.value + '-'
+            }
+
+
+            if (contador3 == 11 ) {
                 disabledFalse()
             }else{
                 disabledTrue()
             }
             
         }
+        
         function inputSenha(){
             contador4 += 1
             if (contador4 < 6) {
