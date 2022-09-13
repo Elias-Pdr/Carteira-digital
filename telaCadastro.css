@@ -9,6 +9,7 @@
 }
 body, html{
     width: 100%;
+    max-width: 1000px;
     height: 100%;
     background-color: rgb(255, 255, 255);
 
@@ -16,6 +17,33 @@ body, html{
 main{
     width: 100%;
 }
+
+#containerCodContratante{
+    width: 90%;
+    margin: auto;
+}
+.textCodContratante{
+    font-size: 1em;
+    text-align: center;
+    margin: 10px 0px;
+}
+.styleInput{
+    font-size: 1em;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid var(---corMain);
+    outline: none;
+    background: none;
+    margin: 50px auto;
+}
+.infosCodContratante{
+
+}
+.infosCodContratante > p{
+    margin: 10px 0px;
+}
+
+
 header {
     padding: 20px;
 }
@@ -25,9 +53,25 @@ header > img{
 .containerIcon {
     text-align: center;
 }
+
 .containerIcon > img{
     width: 60%;
     margin: 20px auto;
+}
+.explicacaoText{
+    text-align: center;
+    margin: 0px 16px;
+}
+
+.explicacaoText > h1{
+    font-size: 1.2em;
+    margin: 20px 0px;
+
+}
+.explicacaoText > p{
+    font-size: 1em;
+    margin: 20px 0px;
+
 }
 
 .containerInput{
@@ -54,20 +98,21 @@ header > img{
     display: flex;
     flex-direction: column;
     width: 100%;
+
     align-items: center;
     position: fixed;
     bottom: 0;
-    margin: 10px 0px;
+    margin: 10px auto;
 }
 .containerButton button{
     width: 90%;
-    margin: 10px 0px;
+    margin: 10px auto;
     padding: 10px 0px;
     font-size: 1em;
     font-weight: bold;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background-color: rgba(128, 128, 128, 0.151);
-    color: rgba(128, 128, 128, 0.699);
+    background-color: var(---corMain);
+    color: white;
 }

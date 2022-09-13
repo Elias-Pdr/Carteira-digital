@@ -12,45 +12,80 @@
         <img src="img/img-back.png" alt="" onclick="window.location.href = 'index.html'">
     </header>
     <main>
-        <div class="containerIcon">
-            <img src="img/img-segunda-tela.png" alt="">
+        <div id="containerCodContratante">
+            <p class="textCodContratante">Para vincular sua conta com a conta da empresa ou pessoa contratante, é necessário um código de verificação </p>
+            <p class="textCodContratante"> O código foi enviado para o email de contratante informado no pré cadastro </p>
+            <input id="cod" class="styleInput" type="text" name="codContratante" placeholder="Digite o código do contratante">
+            <div id="infosContratante" class="infosCodContratante">
+                <p> Contratente: André </p>
+                <p> Empresa: GrupFactory </p>
+                <p> Cargo: Telemarketing</p>
+                <p> Valor: não definido </p>
+            </div>
         </div>
-        <form class="containerInput" action="https://api.staticforms.xyz/submit" method="post">
-            <input type="hidden" name="accessKey" value="cf0f6c67-5eeb-467d-82ab-17de4b5ed579">
 
-            <input name="name" type="text" id="nome" placeholder="Digite seu nome completo">
-            <input name="email" type="email" id="email" placeholder="Digite seu email">
-            <input name="phone" type="tel" id="tel" placeholder="Digite seu celular">
-            <input name="message" type="text" id="cpf" placeholder="Digite seu CPF">
+        <div id="containerInfosCliente">
+            <div class="containerIcon">
+                <img id="imgIcon" src="img/img-segunda-tela.png" alt="">
+            </div>
+            <div class="explicacaoText" id="explicacaoText">
+                <h1>Tenha em mãos</h1>
+                <p>Para aglizar o seu cadastro, separe um <strong>documento de identidade com foto</strong> e um <strong>celular com câmera</strong> (traseira e frontal)</p>
+                <p>A abertura da sua conta é rapida e leva poucos minutos</p>
+            </div>
+            <form class="containerInput">
+                <input name="name" type="text" id="nome" placeholder="Digite seu nome completo">
+                <input name="idade" type="date" id="idade" placeholder="Que dia você nasceu?">
+                <input name="email" type="email" id="email" placeholder="Digite seu email">
+                <input name="phone" type="tel" id="tel" placeholder="Digite seu celular">
+                <input name="message" type="text" id="cpf" placeholder="Digite seu CPF">
+                <input name="maeName" type="text" id="mae" placeholder="Digite o nome completo da sua mãe">
             
-            <input type="number" name="senha" id="senha" placeholder="Digite uma senha">
-            <input type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
-            <label id="avisoText" for="confirmeSenha"></label>
-            <input type="hidden" name="redirectTo" value="telaCadastro.html">
-
+                <input type="number" name="senha" id="senha" placeholder="Digite uma senha">
+                <input type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
+                <label id="avisoText" for="confirmeSenha"></label>
+            </form>
         </div>
+        
         <div class="containerButton">
             <button id="btn-continuar" onclick="continuar()">Continuar</button>
         </div>
     </main>
 
     <script>
+        let containerCodContratante = document.getElementById('containerCodContratante')
+        let containerInfosCliente = document.getElementById('containerInfosCliente')
+        let infosContratante = document.getElementById('infosContratante')
+
         let bntContinuar = document.getElementById('btn-continuar')
 
+        let explicacaoText = document.getElementById('explicacaoText')
+
         let nome = document.getElementById('nome')
+        let idade = document.getElementById('idade')
         let email = document.getElementById('email')
         let tel = document.getElementById('tel')
         let cpf = document.getElementById('cpf')
+        let mae = document.getElementById('mae')
         let senha = document.getElementById('senha')
         let confirmeSenhar = document.getElementById('confirmeSenhar')
         let avisoText = document.getElementById('avisoText')
-        let contador = 0, contador2 = 0, contador3 = 0, contador4 = 0
 
-        bntContinuar.disabled = true
+        let cod = document.getElementById('cod')
+        
 
+        bntContinuar.disabled = false
+//
+containerCodContratante.style.display = 'none'
+containerInfosCliente.style.display = 'block'
+infosContratante.style.display = 'none'
+//
+        nome.style.display = 'none'
+        idade.style.display = 'none'
         email.style.display = 'none'
         tel.style.display = 'none'
         cpf.style.display = 'none'
+        mae.style.display = 'none'
         senha.style.display = 'none'
         confirmeSenhar.style.display = 'none'
 
@@ -62,6 +97,10 @@
             }else{
                 disabledTrue()
             }
+        })
+
+        idade.addEventListener("input", function(e){
+            disabledFalse()
         })
 
         tel.addEventListener("input", function(e){
@@ -98,7 +137,16 @@
             }
 
         })
-
+        
+        mae.addEventListener("input", function(e){
+            var inputLength_mae = mae.value.length
+            if(inputLength_mae >= 4){
+                disabledFalse()
+            }else{
+                disabledTrue()
+            }
+        })
+        
         senha.addEventListener("input", function(e){
             let inputLength_senha = senha.value.length
             if (inputLength_senha < 6) {
@@ -125,7 +173,16 @@
             }
         })
 
-
+        cod.addEventListener("input", function(e){
+            if(cod.value == '1234'){
+                infosContratante.style.display = 'block'
+                disabledFalse()
+            }else{
+                infosContratante.style.display = 'none'
+                disabledTrue()
+            }
+        })
+        
 
         function disabledTrue() {
             bntContinuar.style.background ='rgba(128, 128, 128, 0.151)'
@@ -143,12 +200,31 @@
         }
 
         function continuar(){
-            if (nome.style.display != 'none') {
 
+            if(explicacaoText.style.display != 'none'){
+                explicacaoText.style.display = 'none'
+                nome.style.display = 'block'
+                disabledTrue()
+            }
+            else if (nome.style.display != 'none') {
                 nome.style.display = 'none'
+                idade.style.display = 'block'
+                email.style.display = 'none'
+                tel.style.display = 'none'
+                cpf.style.display = 'none'
+                mae.style.display = 'none'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
+
+                disabledTrue()
+            }
+            else if (idade.style.display != 'none') {
+                nome.style.display = 'none'
+                idade.style.display = 'none'
                 email.style.display = 'block'
                 tel.style.display = 'block'
                 cpf.style.display = 'none'
+                mae.style.display = 'none'
                 senha.style.display = 'none'
                 confirmeSenhar.style.display = 'none'
 
@@ -157,9 +233,11 @@
             else if (email.style.display != 'none' & tel.style.display != 'none') {
                 
                 nome.style.display = 'none'
+                idade.style.display = 'none'
                 email.style.display = 'none'
                 tel.style.display = 'none'
                 cpf.style.display = 'block'
+                mae.style.display = 'none'
                 senha.style.display = 'none'
                 confirmeSenhar.style.display = 'none'
 
@@ -170,18 +248,54 @@
             else if (cpf.style.display != 'none') {
                 
                 nome.style.display = 'none'
+                idade.style.display = 'none'
                 email.style.display = 'none'
                 tel.style.display = 'none'
                 cpf.style.display = 'none'
-                senha.style.display = 'block'
-                confirmeSenhar.style.display = 'block'
+                mae.style.display = 'block'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
 
 
 
                 disabledTrue()
             }
-            else if (senha.style.display == 'block') {
-                window.location.href = 'telaDone.html'
+            else if (mae.style.display != 'none') {
+                
+                nome.style.display = 'none'
+                idade.style.display = 'none'
+                email.style.display = 'none'
+                tel.style.display = 'none'
+                cpf.style.display = 'none'
+                mae.style.display = 'none'
+                senha.style.display = 'block'
+                confirmeSenhar.style.display = 'block'
+
+                disabledTrue()
+            }
+            else if (senha.style.display != 'none') {
+                console.log('senha');
+
+                nome.style.display = 'none'
+                idade.style.display = 'none'
+                email.style.display = 'none'
+                tel.style.display = 'none'
+                cpf.style.display = 'none'
+                mae.style.display = 'none'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
+
+                containerCodContratante.style.display = 'block'
+                containerInfosCliente.style.display = 'none'
+
+                disabledTrue()
+
+            }
+            
+            if (infosContratante.style.display == 'block') {
+                console.log('infosContratante');
+
+                window.location.href= 'telaFotos.html'
             }
         }
     </script>

@@ -9,56 +9,65 @@
 }
 body, html{
     width: 100%;
+    max-width: 1000px;
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
-main{
+header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+header > img{
+    width: 14px;
+    position: absolute;
+}
+header > p{
     width: 100%;
-}
-.containerIcon {
     text-align: center;
-}
-.containerIcon > img{
-    width: 70%;
-    margin: 20px auto;
-}
-
-.containerText{
-    text-align: center;
-    height: 100%;
-}
-.containerText > h1{
-    font-size: 1.2em;
-    margin: 20px;
-}
-.containerText > p{
     font-size: 1em;
 }
+main{
+    width: 90%;
+    margin: auto;
+}
+main{
+    width: 90%;
+    margin: auto;
+}
+main > img{
+    width: 100%;
+}
+h1{
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 0px;
+}
+main > p{
+    font-size: 1em;
+    text-align: center;
+    margin: 20px 0px;
+}
+
 .containerButton{
     display: flex;
     flex-direction: column;
     width: 100%;
+
     align-items: center;
     position: fixed;
     bottom: 0;
-    margin: 10px 0px;
+    margin: 10px auto;
 }
 .containerButton button{
     width: 90%;
-    margin: 10px 0px;
+    margin: 10px auto;
     padding: 10px 0px;
     font-size: 1em;
     font-weight: bold;
     border: none;
     border-radius: 10px;
-}
-.containerButton button:nth-child(1){
-    background: none;
-    box-shadow: none;
-    color: var(---corMain);
-}
-.containerButton button:nth-child(2){
+    cursor: pointer;
     background-color: var(---corMain);
-    box-shadow: 0px 2px 10px 0px #00000011;
     color: white;
 }
