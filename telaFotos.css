@@ -33,7 +33,8 @@ main{
 }
 main{
     width: 90%;
-    margin: auto;
+    margin: auto auto 50px auto;
+    padding-bottom: 80px;
 }
 main > img{
     width: 100%;
@@ -49,19 +50,32 @@ main > p{
     margin: 20px 0px;
 }
 
-.containerButton{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    margin: 10px auto;
+input[type="file"] {
+    display: none;
 }
-.containerButton button{
+label {
     width: 90%;
+    background-color: var(---corMain);
+    color: white;
+    text-align: center;
     margin: 10px auto;
+    cursor: pointer;
+
+    padding: 10px 0px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+
+}
+
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 90%;
+    margin: 10px auto auto auto;
     padding: 10px 0px;
     font-size: 1em;
     font-weight: bold;
@@ -71,3 +85,42 @@ main > p{
     background-color: var(---corMain);
     color: white;
 }
+
+.picture__image{
+    width: 90%;
+    display: block;
+    margin: 20px auto;
+
+}
+.picture__img {
+    width: 100%;
+}
+
+.containerButton{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    align-items: center;
+    margin: 10px auto;
+}
+.containerButton p{
+    margin: 26px 0px;
+}
+.containerButton button{
+    width: 90%;
+    margin: auto auto 10px auto;
+    padding: 10px 0px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(---corMain);
+    color: white;
+}
+.containerButtonFixed{
+    position: fixed;
+    bottom: 0;
+}
+
