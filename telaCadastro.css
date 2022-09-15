@@ -1,6 +1,4 @@
-:root{
-    ---corMain: #c611c5;
-}
+
 *{
     margin: 0%;
     padding: 0%;
@@ -48,6 +46,7 @@ header {
     padding: 10px;
     display: flex;
     align-items: center;
+    margin-top: 6px;
 }
 header > svg{
     width: 30px;
