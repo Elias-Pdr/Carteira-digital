@@ -18,8 +18,8 @@ main{
 .containerIcon {
     text-align: center;
 }
-.containerIcon > img{
-    width: 70%;
+.containerIcon img{
+    width: 80%;
     margin: 20px auto;
 }
 
@@ -42,8 +42,6 @@ main{
     position: fixed;
     bottom: 0;
     margin: 10px 0px;
-    background-color: white;
-
 }
 .containerButton button{
     width: 90%;

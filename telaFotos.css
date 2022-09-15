@@ -13,15 +13,17 @@ body, html{
     height: 100%;
     background-color: rgb(255, 255, 255);
 }
+
 header {
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
 }
-header > img{
-    width: 14px;
-    position: absolute;
+header svg{
+    width: 30px;
+    fill: var(---corMain);
 }
+
 header > p{
     width: 100%;
     text-align: center;

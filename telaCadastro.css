@@ -29,7 +29,7 @@ main{
 }
 .styleInput{
     font-size: 1em;
-    width: 90%;
+    width: 100%;
     border: none;
     border-bottom: 1px solid var(---corMain);
     outline: none;
@@ -45,10 +45,13 @@ main{
 
 
 header {
-    padding: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
-header > img{
-    width: 14px;
+header > svg{
+    width: 30px;
+    fill: var(---corMain);
 }
 .containerIcon {
     text-align: center;
