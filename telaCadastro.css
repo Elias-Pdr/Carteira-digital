@@ -59,6 +59,8 @@ header > svg{
 .containerIcon > img{
     width: 60%;
     margin: 20px auto;
+    background-color: var(---corMain);
+
 }
 .explicacaoText{
     text-align: center;
