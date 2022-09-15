@@ -35,7 +35,7 @@
             <p>Selecione no seu dispositivo a imagem da frente do seu documento de identificação</p>
         </main>
         <footer>
-            <div class="containerButton containerButtonFixed">
+            <div class="containerButtonFixed">
                 <label class="picture" for="picture__input" tabIndex="0">Escolher uma imagem da galeria</label>
         
                 <input type="file" name="picture__input" id="picture__input">
@@ -46,6 +46,7 @@
 
 
     <script>
+        let picture = document.querySelector(".picture")
         let viewImg = document.getElementById("viewImg")
         let conteudoMain = document.getElementById("conteudoMain")
 
@@ -79,11 +80,13 @@
 
                 conteudoMain.style.display = 'none'
                 viewImg.style.display = 'block'
+                picture.style.marginBottom = '0px'
 
             } else {
 
                 conteudoMain.style.display = 'block'
                 viewImg.style.display = 'none'
+                picture.style.marginBottom = '10px'
 
                 pictureImage.innerHTML = pictureImageTxt;
             }

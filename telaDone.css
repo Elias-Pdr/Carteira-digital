@@ -40,6 +40,8 @@ body, html{
     position: fixed;
     bottom: 0;
     margin: 10px 0px;
+    background-color: white;
+
 }
 .containerButton button{
     width: 90%;

@@ -34,8 +34,10 @@
                 <p>A abertura da sua conta é rapida e leva poucos minutos</p>
             </div>
             <form class="containerInput">
+                <label id="labelIdade">Que dia você nasceu?</label>
+
                 <input name="name" type="text" id="nome" placeholder="Digite seu nome completo">
-                <input name="idade" type="date" id="idade" placeholder="Que dia você nasceu?">
+                <input name="idade" type="date" id="idade">
                 <input name="email" type="email" id="email" placeholder="Digite seu email">
                 <input name="phone" type="tel" id="tel" placeholder="Digite seu celular">
                 <input name="message" type="text" id="cpf" placeholder="Digite seu CPF">
@@ -63,6 +65,7 @@
 
         let nome = document.getElementById('nome')
         let idade = document.getElementById('idade')
+        let labelIdade = document.getElementById('labelIdade')
         let email = document.getElementById('email')
         let tel = document.getElementById('tel')
         let cpf = document.getElementById('cpf')
@@ -82,6 +85,7 @@ infosContratante.style.display = 'none'
 //
         nome.style.display = 'none'
         idade.style.display = 'none'
+        labelIdade.style.display = 'none'
         email.style.display = 'none'
         tel.style.display = 'none'
         cpf.style.display = 'none'
@@ -209,6 +213,7 @@ infosContratante.style.display = 'none'
             else if (nome.style.display != 'none') {
                 nome.style.display = 'none'
                 idade.style.display = 'block'
+                labelIdade.style.display = 'block'
                 email.style.display = 'none'
                 tel.style.display = 'none'
                 cpf.style.display = 'none'
@@ -221,6 +226,7 @@ infosContratante.style.display = 'none'
             else if (idade.style.display != 'none') {
                 nome.style.display = 'none'
                 idade.style.display = 'none'
+                labelIdade.style.display = 'none'
                 email.style.display = 'block'
                 tel.style.display = 'block'
                 cpf.style.display = 'none'

@@ -37,7 +37,7 @@ main{
     margin: 50px auto;
 }
 .infosCodContratante{
-
+    padding-bottom: 80px;
 }
 .infosCodContratante > p{
     margin: 10px 0px;
@@ -81,19 +81,26 @@ header > img{
     margin: 20px;
     padding-bottom: 100px;
 }
+#labelIdade{
+    text-align: start;
+    font-weight: 600;
+    font-size: small;
+}
 .containerInput > input{
     font-size: 1em;
     border: none;
     border-bottom: 1px solid var(---corMain);
     outline: none;
     margin: 20px 0px;
+    width: 100%;
 }
-.containerInput > label{
+#avisoText{
     color: rgb(226, 5, 5);
     text-align: start;
     font-weight: 600;
     font-size: small;
 }
+
 .containerButton{
     display: flex;
     flex-direction: column;
@@ -103,6 +110,7 @@ header > img{
     position: fixed;
     bottom: 0;
     margin: 10px auto;
+    background-color: white;
 }
 .containerButton button{
     width: 90%;
