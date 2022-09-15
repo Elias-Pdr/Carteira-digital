@@ -46,7 +46,6 @@
 
 
     <script>
-        let picture = document.querySelector(".picture")
         let viewImg = document.getElementById("viewImg")
         let conteudoMain = document.getElementById("conteudoMain")
 
@@ -80,13 +79,11 @@
 
                 conteudoMain.style.display = 'none'
                 viewImg.style.display = 'block'
-                picture.style.marginBottom = '0px'
 
             } else {
 
                 conteudoMain.style.display = 'block'
                 viewImg.style.display = 'none'
-                picture.style.marginBottom = '10px'
 
                 pictureImage.innerHTML = pictureImageTxt;
             }
