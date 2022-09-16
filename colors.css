@@ -1,6 +1,5 @@
 :root{
     ---corMain: #7b1172;
-    ---corMain2: #13117b;
 }
 .colorsAnimation{
     animation: changeBackgroundColor 5s infinite;
