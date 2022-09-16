@@ -2,3 +2,17 @@
     ---corMain: #7b1172;
     ---corMain2: #13117b;
 }
+.colorsAnimation{
+    animation: changeBackgroundColor 5s infinite;
+}
+@keyframes changeBackgroundColor {
+    0% {
+      background-color: #7b1172;
+    }
+    50% {
+      background-color: #af2aa4;
+    }
+    100% {
+      background-color: #7b1172;
+    }
+}
