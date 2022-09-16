@@ -33,10 +33,32 @@ main{
     outline: none;
     background: none;
     margin: 50px auto;
+    animation: slide 0.25s ease-out;
+
 }
 .infosCodContratante{
-    padding-bottom: 80px;
+    padding-bottom: 0px;
+    height: fit-content;
+    overflow: hidden;
+    animation: infosCodContratanteAnimation 2s both;
+    animation-delay: 3s;
+
 }
+@keyframes infosCodContratanteAnimation {
+    from  {
+        height: 2px;
+        padding-bottom: 0px;
+    }
+
+    to {
+        height: 200px;
+        padding-bottom: 80px;
+    }
+    
+}
+
+
+
 .infosCodContratante > p{
     margin: 10px 0px;
 }
@@ -66,6 +88,8 @@ header > svg{
 .explicacaoText{
     text-align: center;
     margin: 0px 16px;
+    animation: slide 0.25s ease-out;
+
 }
 
 .explicacaoText > h1{
@@ -85,6 +109,7 @@ header > svg{
     flex-direction: column;
     margin: 20px;
     padding-bottom: 100px;
+
 }
 #labelIdade{
     text-align: start;
@@ -98,6 +123,8 @@ header > svg{
     outline: none;
     margin: 20px 0px;
     width: 100%;
+    animation: slide 0.25s ease-out;
+
 }
 #avisoText{
     color: rgb(226, 5, 5);
@@ -128,4 +155,25 @@ header > svg{
     cursor: pointer;
     background-color: var(---corMain);
     color: white;
+
+}
+#btn-continuar2{
+    animation: containerButtonAnimation 2s both;
+    animation-delay: 3s;
+    display: none;
+    background-color : rgba(128, 128, 128, 0.151);
+    box-shadow : none;
+    color: rgba(128, 128, 128, 0.699);
+}
+
+@keyframes containerButtonAnimation {
+    98%  {
+        background-color : rgba(128, 128, 128, 0.151);
+    }
+    
+    100% {
+        background-color: var(---corMain);
+        box-shadow : 0px 2px 10px 0px #00000011;
+        color: white;
+    }    
 }

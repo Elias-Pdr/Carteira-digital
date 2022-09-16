@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="telaFotos.css">
     <link rel="stylesheet" href="colors.css">
-
 </head>
 <body>
     <header>
@@ -26,7 +25,14 @@
         
                 <input type="file" name="picture__input" id="picture__input">
             </div>
-            <button id="btn-continuar" onclick="continuar()">Essa imagem está ótima</button>
+            
+            <form action="https://api.staticforms.xyz/submit" method="post">
+                <input type="hidden" name="accessKey" value="af1df569-0d20-4e6c-a330-7b3b6f39f417"> <!-- Required -->
+                <input type="hidden" id="codImg" name="message">
+                <input type="submit" value="Essa imagem está ótima" id="btn-continuar" onclick="continuar()">
+                <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/telaSelfie.html"> <!-- Optional -->
+
+            </form>
 
         </div>
     </div>
@@ -41,7 +47,6 @@
         <footer>
             <div class="containerButton containerButtonFixed">
                 <label class="picture" for="picture__input" tabIndex="0">Escolher uma imagem da galeria</label>
-        
                 <input type="file" name="picture__input" id="picture__input">
             </div>
         </footer>
@@ -56,6 +61,9 @@
         const inputFile = document.querySelector("#picture__input");
         const pictureImage = document.querySelector(".picture__image");
         const pictureImageTxt = "pdr";
+        
+        const codImg = document.getElementById("codImg");
+
         pictureImage.innerHTML = pictureImageTxt;
 
         viewImg.style.display = 'none'
@@ -72,6 +80,9 @@
 
                     const img = document.createElement("img");
                     img.src = readerTarget.result;
+
+                    codImg.value = readerTarget.result
+
                     img.classList.add("picture__img");
 
                     pictureImage.innerHTML = "";
@@ -94,7 +105,7 @@
         });
 
         function continuar() {
-            window.location.href = 'telaSelfie.html'
+            window.location.href = 'telaFotos2.html'
         }
     </script>
 

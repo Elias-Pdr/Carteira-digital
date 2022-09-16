@@ -23,9 +23,14 @@ main{
     border: inset solid 5px rgb(255, 255, 255);
 }
 
+
+
+
 .containerText{
     text-align: center;
     height: 100%;
+    animation: slide 0.25s ease-out;
+
 }
 .containerText > h1{
     font-size: 1.2em;

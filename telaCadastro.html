@@ -22,7 +22,7 @@
             <p class="textCodContratante"> O código foi enviado para o email de contratante informado no pré cadastro </p>
             <input id="cod" class="styleInput" type="text" name="codContratante" placeholder="Digite o código do contratante">
             <div id="infosContratante" class="infosCodContratante">
-                <p> Contratente: André </p>
+                <p> Contratente: Felipe Bittencourt </p>
                 <p> Empresa: GrupFactory </p>
                 <p> Cargo: Telemarketing</p>
                 <p> Valor: não definido </p>
@@ -56,6 +56,7 @@
         
         <div class="containerButton">
             <button id="btn-continuar" onclick="continuar()">Continuar</button>
+            <button id="btn-continuar2" onclick="continuar()">Continuar</button>
         </div>
     </main>
 
@@ -65,6 +66,7 @@
         let infosContratante = document.getElementById('infosContratante')
 
         let bntContinuar = document.getElementById('btn-continuar')
+        let bntContinuar2 = document.getElementById('btn-continuar2')
 
         let explicacaoText = document.getElementById('explicacaoText')
 
@@ -168,29 +170,27 @@ infosContratante.style.display = 'none'
         
         confirmeSenhar.addEventListener("input", function(e){
             var inputLength_confirmeSenhar = confirmeSenhar.value.length
-            console.log(senha.value);
-            console.log(confirmeSenhar.value);
 
             if(confirmeSenhar.value == senha.value){
                 disabledFalse()
-                console.log('igual');
             }else{
                 avisoText.innerHTML = '* As senhas são diferentes'
                 disabledTrue()
-                console.log('diferente');
-
             }
         })
 
         cod.addEventListener("input", function(e){
             if(cod.value == '1234'){
                 infosContratante.style.display = 'block'
-                disabledFalse()
+                bntContinuar.style.display = 'none'
+                bntContinuar2.style.display = 'block'
+
             }else{
                 infosContratante.style.display = 'none'
                 disabledTrue()
             }
         })
+
         
 
         function disabledTrue() {
@@ -217,14 +217,14 @@ infosContratante.style.display = 'none'
             }
             else if (nome.style.display != 'none') {
                 nome.style.display = 'none'
-                idade.style.display = 'block'
-                labelIdade.style.display = 'block'
+                idade.style.display = 'none'
+                labelIdade.style.display = 'none'
                 email.style.display = 'none'
                 tel.style.display = 'none'
                 cpf.style.display = 'none'
                 mae.style.display = 'none'
-                senha.style.display = 'none'
-                confirmeSenhar.style.display = 'none'
+                senha.style.display = 'block'
+                confirmeSenhar.style.display = 'block'
 
                 disabledTrue()
             }
