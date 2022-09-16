@@ -60,6 +60,7 @@ header > svg{
     width: 60%;
     margin: 20px auto;
     background-color: var(---corMain);
+    border: inset solid 5px rgb(255, 255, 255);
 
 }
 .explicacaoText{
