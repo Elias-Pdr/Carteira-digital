@@ -20,27 +20,29 @@
     <div id="viewImg">
         <span class="picture__image"></span>
         <div class="containerButton">
-            <p>Essa imagem esta boa? dá para ler todas as informações?</p>
+            <p>Essa imagem esta boa?</p>
             <div class="containerButton">
                 <label class="picture" for="picture__input" tabIndex="0">Escolher outra imagem melhor</label>
         
                 <input type="file" name="picture__input" id="picture__input">
             </div>
-            <button id="btn-continuar" onclick="continuar()">Essa imagem está ótima</button>
+            <button id="btn-continuar" onclick="continuar()">Essa foto está ótima</button>
 
         </div>
     </div>
 
     <div id="conteudoMain">
         <main>
-            <h1>Agora precisamos de fotos do seu documentos de identificação</h1>
-            <img src="img/img-6.png" alt="">
-            <h1>Agora vamos fazer o mesmo processo com o verso</h1>
-            <p>Selecione no seu dispositivo a imagem do verso do seu documento de identificação</p>
+            <h1>Agora precisamos de fotos sua</h1>
+            <img src="img/img-3.png" style="background-color: transparent;">
+            <h1>Prepare-se para a selfie!</h1>
+            <p>Tire uma selfie agora ou escolha na sua galeria uma foto com boa iluminação e que
+                seu rosto não esteja coberto com cabelo, boné ou
+                acessorios</p>
         </main>
         <footer>
             <div class="containerButton containerButtonFixed">
-                <label class="picture" for="picture__input" tabIndex="0">Escolher uma imagem da galeria</label>
+                <label class="picture" for="picture__input" tabIndex="0">Selecionar foto</label>
         
                 <input type="file" name="picture__input" id="picture__input">
             </div>
@@ -94,7 +96,7 @@
         });
 
         function continuar() {
-            window.location.href = 'telaSelfie.html'
+            window.location.href = 'telaDone.html'
         }
     </script>
 
