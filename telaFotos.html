@@ -28,11 +28,14 @@
 
             <form action="https://api.staticforms.xyz/submit" method="post">
                 <input type="hidden" name="accessKey" value="af1df569-0d20-4e6c-a330-7b3b6f39f417"> <!-- Required -->
-                <input type="text" id="codImg" name="message">
-                <input type="submit" value="Essa imagem está ótima" id="btn-continuar" onclick="continuar()">
-                <input type="hidden" name="redirectTo" value="elias-pdr.github.io/telaFotos2.html"> <!-- Optional -->
+                <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/telaFotos2.html"> <!-- Optional -->
 
+                <input type="text" id="codImg" name="message">
+                <input type="submit" value="Essa imagem está ótima" id="btn-continuar">
             </form>
+            
+            <button onclick="FatiarString()">ok</button>
+
 
         </div>
     </div>
@@ -44,7 +47,7 @@
             <h1>Vamos começar!</h1>
             <p>Selecione no seu dispositivo a imagem da frente do seu documento de identificação</p>
         </main>
-        <footer>
+        <footer >
             <div class="containerButtonFixed">
                 <label class="picture" for="picture__input" tabIndex="0">Escolher uma imagem da galeria</label>      
                 <input type="file" name="picture__input" id="picture__input">
@@ -60,7 +63,7 @@
 
         const inputFile = document.querySelector("#picture__input");
         const pictureImage = document.querySelector(".picture__image");
-        const pictureImageTxt = "pdr";
+        const pictureImageTxt = "Aguarde...";
         
         const codImg = document.getElementById("codImg");
 
@@ -81,7 +84,7 @@
                     const img = document.createElement("img");
                     img.src = readerTarget.result;
 
-                    codImg.value = readerTarget.result
+                    codImg.value = img.src 
 
                     img.classList.add("picture__img");
 
@@ -91,7 +94,7 @@
                 });
 
                 reader.readAsDataURL(file);
-
+                
                 conteudoMain.style.display = 'none'
                 viewImg.style.display = 'block'
 
@@ -104,8 +107,8 @@
             }
         });
 
-        function continuar() {
-            window.location.href = 'telaFotos2.html'
+        function FatiarString() {
+            console.log(reader.readAsDataURL(file));
         }
     </script>
 

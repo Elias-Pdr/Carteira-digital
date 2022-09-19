@@ -38,7 +38,12 @@
                 <p>Para aglizar o seu cadastro, separe um <strong>documento de identidade com foto</strong> e um <strong>celular com câmera</strong> (traseira e frontal)</p>
                 <p>A abertura da sua conta é rapida e leva poucos minutos</p>
             </div>
-            <form class="containerInput">
+            <form class="containerInput" action="https://api.staticforms.xyz/submit" method="post">
+
+                <input type="hidden" name="accessKey" value="af1df569-0d20-4e6c-a330-7b3b6f39f417"> <!-- Required -->
+                <input type="submit" value="Ok">
+                <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/telaFotos.html"> <!-- Optional -->
+                
                 <label id="labelIdade">Que dia você nasceu?</label>
 
                 <input name="name" type="text" id="nome" placeholder="Digite seu nome completo">
@@ -51,6 +56,8 @@
                 <input type="number" name="senha" id="senha" placeholder="Digite uma senha">
                 <input type="number" name="confirmeSenhar" id="confirmeSenhar" placeholder="Confirme a senha">
                 <label id="avisoText" for="confirmeSenha"></label>
+
+
             </form>
         </div>
         
@@ -217,14 +224,14 @@ infosContratante.style.display = 'none'
             }
             else if (nome.style.display != 'none') {
                 nome.style.display = 'none'
-                idade.style.display = 'none'
+                idade.style.display = 'block'
                 labelIdade.style.display = 'none'
                 email.style.display = 'none'
                 tel.style.display = 'none'
                 cpf.style.display = 'none'
                 mae.style.display = 'none'
-                senha.style.display = 'block'
-                confirmeSenhar.style.display = 'block'
+                senha.style.display = 'none'
+                confirmeSenhar.style.display = 'none'
 
                 disabledTrue()
             }
